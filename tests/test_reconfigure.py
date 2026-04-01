@@ -15,8 +15,9 @@ def main() -> None:
     # This script highlights two behaviors:
     # 1. a logger can be reconfigured to write to a different file
     # 2. repeated setup should not duplicate stdout handlers
-    first_path = Path("tests/output/reconfigure-first.log")
-    second_path = Path("tests/output/reconfigure-second.log")
+    output_dir = Path(__file__).resolve().parent / "output"
+    first_path = output_dir / "reconfigure-first.log"
+    second_path = output_dir / "reconfigure-second.log"
 
     logger = get_logger(
         "eventstream.reconfigure-demo",
@@ -28,8 +29,8 @@ def main() -> None:
     config = LoggerConfig(
         level=logging.DEBUG,
         log_file=second_path,
-        console_format="%(asctime)s %(name)s [%(levelname)s] %(message)s",
-        file_format="%(asctime)s %(name)s [%(levelname)s] %(message)s",
+        console_format="%(asctime)s %(name)s %(levelname_fixed)s : %(message)s",
+        file_format="%(asctime)s %(name)s %(levelname_fixed)s : %(message)s",
     )
     logger = get_logger(
         "eventstream.reconfigure-demo",
