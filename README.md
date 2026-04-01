@@ -40,7 +40,7 @@ So this is the result: a lightweight package extracted from that exact cycle of 
 ## Install
 
 ```bash
-pip install -e .
+pip install sysentropy
 ```
 
 ## Quick start
