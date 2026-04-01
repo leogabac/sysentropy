@@ -23,9 +23,10 @@ class LoggerConfig:
 
     level: int = logging.INFO
     log_file: str | Path | None = None
-    console_format: str = "%(asctime)s [%(levelname)s] %(message)s"
-    file_format: str = "%(asctime)s [%(levelname)s] %(message)s"
+    console_format: str = "%(asctime)s %(levelname_fixed)s : %(message)s"
+    file_format: str = "%(asctime)s %(levelname_fixed)s : %(message)s"
     date_format: str = "%Y-%m-%d %H:%M:%S"
+    level_width: int = 8
     use_colors: bool = True
     propagate: bool = False
     create_directories: bool = True

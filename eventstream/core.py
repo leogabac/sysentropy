@@ -8,7 +8,7 @@ import logging
 import sys
 
 from .config import LoggerConfig
-from .formatters import KernelColorFormatter
+from .formatters import EventStreamFormatter, KernelColorFormatter
 
 
 def configure_logger(logger: logging.Logger, config: LoggerConfig) -> logging.Logger:
@@ -27,6 +27,7 @@ def configure_logger(logger: logging.Logger, config: LoggerConfig) -> logging.Lo
         KernelColorFormatter(
             fmt=config.console_format,
             datefmt=config.date_format,
+            level_width=config.level_width,
             colors=config.colors,
             use_colors=config.use_colors,
         )
@@ -57,9 +58,10 @@ def configure_logger(logger: logging.Logger, config: LoggerConfig) -> logging.Lo
 
         file_handler.setLevel(config.level)
         file_handler.setFormatter(
-            logging.Formatter(
+            EventStreamFormatter(
                 fmt=config.file_format,
                 datefmt=config.date_format,
+                level_width=config.level_width,
             )
         )
     elif file_handler is not None:
