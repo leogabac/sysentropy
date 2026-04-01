@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from eventstream import LoggerConfig, get_logger
+from sysentropy import LoggerConfig, get_logger
 
 
 def main() -> None:
@@ -20,7 +20,7 @@ def main() -> None:
     second_path = output_dir / "reconfigure-second.log"
 
     logger = get_logger(
-        "eventstream.reconfigure-demo",
+        "sysentropy.reconfigure-demo",
         log_file=first_path,
         level=logging.INFO,
     )
@@ -33,7 +33,7 @@ def main() -> None:
         file_format="%(asctime)s %(name)s %(levelname_fixed)s : %(message)s",
     )
     logger = get_logger(
-        "eventstream.reconfigure-demo",
+        "sysentropy.reconfigure-demo",
         level=logging.DEBUG,
         config=config,
     )

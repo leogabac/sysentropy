@@ -1,1 +1,1 @@
-"""Manual test scripts for eventstream."""
+"""Manual test scripts for sysentropy."""

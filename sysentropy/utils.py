@@ -1,4 +1,4 @@
-"""General utility helpers for eventstream."""
+"""General utility helpers for sysentropy."""
 
 from __future__ import annotations
 

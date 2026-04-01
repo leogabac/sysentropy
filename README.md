@@ -1,9 +1,9 @@
-# eventstream
+# sysentropy
 
 Opinionated Python logging for the recurring problem of:
 "I just need a decent logger, why am I formatting timestamps by hand again?"
 
-`eventstream` is a small Python library that writes plain logs to disk, colored logs to stdout, and gives you a reusable timestamp helper so you can stop retyping `strftime` formats you were never going to remember anyway.
+`sysentropy` is a small Python library that writes plain logs to disk, colored logs to stdout, and gives you a reusable timestamp helper so you can stop retyping `strftime` formats you were never going to remember anyway.
 
 ## How This Repo Happened
 
@@ -46,7 +46,7 @@ pip install -e .
 ## Quick start
 
 ```python
-from eventstream import get_logger, timestamp
+from sysentropy import get_logger, timestamp
 
 logger = get_logger("demo", log_file=f"logs/demo-{timestamp()}.log")
 
@@ -70,7 +70,7 @@ Default output style:
 If you only need the timestamp format, import it directly:
 
 ```python
-from eventstream import timestamp
+from sysentropy import timestamp
 
 filename = f"run-{timestamp()}.log"
 ```

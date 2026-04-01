@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "eventstream"
+name = "sysentropy"
 version = "0.1.0"
 description = "Opinionated Python logging"
 readme = "README.md"
@@ -27,11 +27,11 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/leogabac/eventstream"
-Repository = "https://github.com/leogabac/eventstream"
+Homepage = "https://github.com/leogabac/sysentropy"
+Repository = "https://github.com/leogabac/sysentropy"
 
 [tool.setuptools]
 include-package-data = true
 
 [tool.setuptools.packages.find]
-include = ["eventstream*"]
+include = ["sysentropy*"]

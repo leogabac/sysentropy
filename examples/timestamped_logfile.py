@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from eventstream import get_logger, timestamp
+from sysentropy import get_logger, timestamp
 
 
 def main() -> None:
@@ -18,7 +18,7 @@ def main() -> None:
     log_path = Path(__file__).resolve().parent / "output" / f"example-{timestamp()}.log"
 
     logger = get_logger(
-        "eventstream.example.timestamped",
+        "sysentropy.example.timestamped",
         log_file=log_path,
         level=logging.INFO,
     )

@@ -8,7 +8,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from eventstream import get_logger
+from sysentropy import get_logger
 
 
 def main() -> None:
@@ -16,7 +16,7 @@ def main() -> None:
     # colored lines on stdout, plain text lines written to a log file on disk.
     log_path = Path("tests/output/file-demo.log")
     logger = get_logger(
-        "eventstream.file-demo",
+        "sysentropy.file-demo",
         log_file=log_path,
         level=logging.DEBUG,
     )

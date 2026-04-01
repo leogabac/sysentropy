@@ -1,4 +1,4 @@
-"""Formatter implementations used by eventstream."""
+"""Formatter implementations used by sysentropy."""
 
 from __future__ import annotations
 

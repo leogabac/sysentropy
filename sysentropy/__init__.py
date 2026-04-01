@@ -1,4 +1,4 @@
-"""Public package interface for eventstream."""
+"""Public package interface for sysentropy."""
 
 from .config import LoggerConfig
 from .core import configure_logger, get_logger

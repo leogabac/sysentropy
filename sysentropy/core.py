@@ -1,4 +1,4 @@
-"""Core logger construction helpers for eventstream."""
+"""Core logger construction helpers for sysentropy."""
 
 from __future__ import annotations
 
@@ -12,7 +12,7 @@ from .formatters import EventStreamFormatter, KernelColorFormatter
 
 
 def configure_logger(logger: logging.Logger, config: LoggerConfig) -> logging.Logger:
-    """Apply eventstream handler configuration to an existing logger."""
+    """Apply sysentropy handler configuration to an existing logger."""
 
     logger.setLevel(config.level)
 
@@ -79,7 +79,7 @@ def get_logger(
     *,
     config: LoggerConfig | None = None,
 ) -> logging.Logger:
-    """Create or reuse a named logger configured the eventstream way."""
+    """Create or reuse a named logger configured the sysentropy way."""
 
     effective = replace(config) if config is not None else LoggerConfig()
     if level is not None:

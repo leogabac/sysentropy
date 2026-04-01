@@ -8,13 +8,13 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from eventstream import get_logger
+from sysentropy import get_logger
 
 
 def main() -> None:
     # This script highlights the console color palette for each log level.
     # Expected result: stdout shows one line per level with colored level names.
-    logger = get_logger("eventstream.stdout-demo", level=logging.DEBUG)
+    logger = get_logger("sysentropy.stdout-demo", level=logging.DEBUG)
 
     logger.debug("debug output should be cyan")
     logger.info("info output should be green")
