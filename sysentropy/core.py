@@ -5,6 +5,7 @@ from __future__ import annotations
 from dataclasses import replace
 from pathlib import Path
 import logging
+import os
 import sys
 
 from .config import LoggerConfig
@@ -23,13 +24,14 @@ def configure_logger(logger: logging.Logger, config: LoggerConfig) -> logging.Lo
         logger.addHandler(stream_handler)
 
     stream_handler.setLevel(config.level)
+    use_colors = config.use_colors and _should_use_colors(stream_handler.stream)
     stream_handler.setFormatter(
         KernelColorFormatter(
             fmt=config.console_format,
             datefmt=config.date_format,
             level_width=config.level_width,
             colors=config.colors,
-            use_colors=config.use_colors,
+            use_colors=use_colors,
         )
     )
 
@@ -97,3 +99,17 @@ def _get_named_handler(
         if handler.get_name() == handler_name:
             return handler
     return None
+
+
+def _should_use_colors(stream: object) -> bool:
+    """Honor common env flags before falling back to TTY detection."""
+
+    if os.getenv("NO_COLOR") is not None:
+        return False
+    if os.getenv("FORCE_COLOR") is not None or os.getenv("CLICOLOR_FORCE") is not None:
+        return True
+
+    isatty = getattr(stream, "isatty", None)
+    if callable(isatty):
+        return bool(isatty())
+    return False
